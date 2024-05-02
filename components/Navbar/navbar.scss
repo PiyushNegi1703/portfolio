@@ -1,0 +1,25 @@
+.nav-container {
+    position: sticky;
+    height: 10vh;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+
+    .logo-and-links {
+        gap: 10vh;
+
+        .logo-container {
+            width: fit-content;
+
+            canvas {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .navlinks-container {
+            gap: 30px;
+            list-style: none;
+        }
+    }
+}
