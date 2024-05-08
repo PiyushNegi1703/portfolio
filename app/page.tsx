@@ -1,11 +1,22 @@
-import Image from "next/image";
+"use client";
+
 import "./page.scss";
 import Navbar from "@/components/Navbar/Navbar";
+import { useState } from "react";
+import ThemeContext from "@/context/ThemeContext";
 
 export default function Home() {
+  const [mode, setMode] = useState(false);
+
+  function handleToggle() {
+    setMode(!mode);
+  }
+
   return (
-    <main className="main">
-      <Navbar />
-    </main>
+    <ThemeContext.Provider value={mode ? "dark" : "light"}>
+      <main className="main">
+        <Navbar onToggle={handleToggle} />
+      </main>
+    </ThemeContext.Provider>
   );
 }

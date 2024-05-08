@@ -1,10 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import Spline from "@splinetool/react-spline";
 import "./navbar.scss";
+import Toggle from "@/utils/toggle/Toggle";
+import ThemeContext from "@/context/ThemeContext";
 
-const Navbar = () => {
+interface NavbarProps {
+  onToggle: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onToggle }) => {
   const navlinks = [
     { title: "Home" },
     { title: "Skills" },
@@ -13,8 +19,10 @@ const Navbar = () => {
     { title: "Contact Me" },
   ];
 
+  const theme = useContext(ThemeContext);
+
   return (
-    <div className="nav-container justify-between">
+    <div className={`${theme}-nav nav-container justify-between`}>
       <div className="logo-and-links align-center">
         <div className="logo-container">
           <Spline scene="https://prod.spline.design/awVG2GNVQpJvqcvy/scene.splinecode" />
@@ -26,7 +34,9 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div>Toggle</div>
+      <div className="toggle-container">
+        <Toggle onToggle={onToggle} />
+      </div>
     </div>
   );
 };
