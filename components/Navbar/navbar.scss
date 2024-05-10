@@ -1,20 +1,18 @@
 .nav-container {
     position: sticky;
+    display: flex;
     height: 10vh;
     top: 0;
     width: 100%;
-    padding: 20px 50px;
+    padding: 20px 100px;
+    transition: all 0.5s;
 
     .logo-and-links {
         gap: 10vh;
 
         .logo-container {
-            width: fit-content;
-
-            canvas {
-                width: 50px;
-                height: 50px;
-            }
+            width: 50px;
+            height: 50px;
         }
 
         .navlinks-container {
@@ -23,18 +21,13 @@
         }
 
     }
-
-    .toggle-container {
-        canvas {
-            height: 50px;
-            width: 50px;
-        }
-    }
-
-    transition: all 0.5s;
 }
 
 .dark-nav {
     background-color: var(--dark-bg);
     color: white;
+}
+
+.light-nav {
+    background-color: white;
 }

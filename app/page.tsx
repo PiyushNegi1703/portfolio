@@ -4,6 +4,7 @@ import "./page.scss";
 import Navbar from "@/components/Navbar/Navbar";
 import { useState } from "react";
 import ThemeContext from "@/context/ThemeContext";
+import HeroSection from "@/components/HeroSection/HeroSection";
 
 export default function Home() {
   const [mode, setMode] = useState(false);
@@ -14,8 +15,9 @@ export default function Home() {
 
   return (
     <ThemeContext.Provider value={mode ? "dark" : "light"}>
-      <main className="main">
+      <main className={`${mode ? "dark" : "light"}-main main-container`}>
         <Navbar onToggle={handleToggle} />
+        <HeroSection />
       </main>
     </ThemeContext.Provider>
   );
